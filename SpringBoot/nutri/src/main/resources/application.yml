@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/toy_project_1?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 1073031560a!
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLInnoDBDialect
+    hibernate:
+      ddl-auto: update
