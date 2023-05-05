@@ -1,4 +1,4 @@
-package com.example.nutri.service;
+package com.example.nutri.services;
 
 public class HelloService {
     public String sayHello(String name){

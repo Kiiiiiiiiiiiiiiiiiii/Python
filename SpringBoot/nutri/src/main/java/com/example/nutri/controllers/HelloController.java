@@ -1,8 +1,7 @@
-package com.example.nutri.controller;
+package com.example.nutri.controllers;
 
-import com.example.nutri.service.HelloService;
+import com.example.nutri.services.HelloService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;

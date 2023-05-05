@@ -23,6 +23,12 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+	//compile group: 'org.json', name: 'json', version: '20160810'
+	implementation 'org.json:json:20160810'
+	implementation fileTree(dir: 'libs', includes: ['*.jar'])
+	implementation 'commons-codec:commons-codec:1.14'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.11'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
