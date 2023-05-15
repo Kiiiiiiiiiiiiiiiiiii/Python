@@ -18,7 +18,7 @@ public class SearchRequestController {
     @GetMapping("/api/search")
     public List<ItemDto> getItems(@RequestParam String query) {
         // ? 뒤에 오는 넘을 쓰고 싶다면 @RequestParam 필수
-        String resultString = naverShopSearch.search();
+        String resultString = naverShopSearch.search(query);
         return naverShopSearch.fromJSONtoItems(resultString);
     }
 }
