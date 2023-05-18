@@ -13,7 +13,12 @@ public class ItemService {
     private ItemRepository itemRepository;
 
     @Transactional
-    public Long save(ItemDto dto) {
+    public Long saveItem(ItemDto dto) {
+        return itemRepository.save(dto.toEntity()).getId();
+    }
+
+    @Transactional
+    public Long updateItem(ItemDto dto) {
         return itemRepository.save(dto.toEntity()).getId();
     }
 }
