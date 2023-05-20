@@ -21,7 +21,7 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping("/item/{id}")
-    public ResponseEntity<Item> getItemById(@PathVariable Long id){
+    public ResponseEntity<Item> getItemById(@PathVariable Long id) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Item not exist : " + id));
         return ResponseEntity.ok(item);
@@ -33,7 +33,6 @@ public class ItemController {
     }
     @PostMapping("/item/save")
     public void saveItem(@RequestBody ItemDto dto) {
-        //itemRepository.save(dto.toEntity());
         itemService.saveItem(dto);
     }
 

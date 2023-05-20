@@ -21,10 +21,19 @@ public class User {
     private String name;
     @Column
     private String userId;
+    @Column
+    private String email;
+    @Column
+    private String phoneNo;
+    @Column
+    private String address;
 
     @Builder
-    public User(String name, String userId) {
+    public User(String name, String userId, String email, String phoneNo, String address) {
         this.name = name;
         this.userId = userId;
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.address = address;
     }
 }
