@@ -15,12 +15,14 @@ public class ItemDto {
     private String description;
     private String link;
     private String image;
+    private Long itemTypeId;
 
     public ItemDto(JSONObject itemJson) {
         this.title = itemJson.getString("title");
         this.link = itemJson.getString("link");
         this.image = itemJson.getString("image");
         this.lprice = itemJson.getInt("lprice");
+        this.itemTypeId = itemJson.getLong("itemTypeId");
     }
 
     public Item toEntity() {
@@ -30,6 +32,7 @@ public class ItemDto {
                 .description(description)
                 .link(link)
                 .image(image)
+                .itemTypeId(itemTypeId)
                 .build();
     }
 }
