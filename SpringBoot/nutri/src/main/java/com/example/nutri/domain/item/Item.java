@@ -23,17 +23,17 @@ public class Item {
     private String link;
     @Column(length = 500)
     private String image;
-    @Column
-    private Long itemTypeId;
+    @ManyToOne
+    private ItemType itemType;
 
     @Builder
-    public Item(String title, Integer lprice, String description, String link, String image, Long itemTypeId) {
+    public Item(String title, Integer lprice, String description, String link, String image, ItemType itemType) {
         this.title = title;
         this.lprice = lprice;
         this.description = description;
         this.link = link;
         this.image = image;
-        this.itemTypeId = itemTypeId;
+        this.itemType = itemType;
     }
 
 }
