@@ -27,6 +27,11 @@ public class ItemController {
         return ResponseEntity.ok(item);
     }
 
+    @GetMapping("/item/type/{id}")
+    public List<Item> getItemByTypeId(@PathVariable Long itemTypeId) {
+        return itemService.getItemByTypeId(itemTypeId);
+    }
+
     @GetMapping("/items")
     public List<Item> getAllItems() {
         return itemRepository.findAll();

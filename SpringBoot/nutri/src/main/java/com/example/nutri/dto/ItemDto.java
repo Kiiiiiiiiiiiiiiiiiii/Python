@@ -1,6 +1,6 @@
 package com.example.nutri.dto;
 
-import com.example.nutri.domain.item.Item;
+import com.example.nutri.domain.item.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,14 +15,14 @@ public class ItemDto {
     private String description;
     private String link;
     private String image;
-    private Long itemTypeId;
+    private ItemType itemType;
 
     public ItemDto(JSONObject itemJson) {
         this.title = itemJson.getString("title");
         this.link = itemJson.getString("link");
         this.image = itemJson.getString("image");
         this.lprice = itemJson.getInt("lprice");
-        this.itemTypeId = itemJson.getLong("itemTypeId");
+        this.itemType = (ItemType) itemJson.get("itemType");
     }
 
     public Item toEntity() {
@@ -32,7 +32,7 @@ public class ItemDto {
                 .description(description)
                 .link(link)
                 .image(image)
-                .itemTypeId(itemTypeId)
+                .itemType(itemType)
                 .build();
     }
 }

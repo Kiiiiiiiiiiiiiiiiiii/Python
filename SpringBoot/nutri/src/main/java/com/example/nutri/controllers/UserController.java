@@ -2,7 +2,6 @@ package com.example.nutri.controllers;
 
 import com.example.nutri.domain.user.User;
 import com.example.nutri.domain.user.UserRepository;
-import com.example.nutri.dto.ItemDto;
 import com.example.nutri.dto.UserDto;
 import com.example.nutri.dto.exception.ResourceNotFoundException;
 import com.example.nutri.services.UserService;
@@ -21,7 +20,7 @@ public class UserController {
     private UserRepository userRepository;
     private UserService userService;
 
-    @GetMapping("/user/{id")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not exist : " + id));

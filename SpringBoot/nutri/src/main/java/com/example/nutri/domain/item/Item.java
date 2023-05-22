@@ -24,6 +24,7 @@ public class Item {
     @Column(length = 500)
     private String image;
     @ManyToOne
+    @JoinColumn(name = "itemType_id")
     private ItemType itemType;
 
     @Builder
