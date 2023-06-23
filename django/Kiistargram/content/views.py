@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Feed
+from user.models import User
 import os
 from uuid import uuid4
 from Kiistargram.settings import MEDIA_ROOT
@@ -10,7 +11,18 @@ class Main(APIView):
     def get(self, request):
         feed_list = Feed.objects.all().order_by('-id') # 모델이 선언한 피드 테이블의 모든 데이터를 가져옴 역순으로 가져오기 위한 order by -id
 
-        return render(request, 'Kiistargram/main.html', context=dict(feed_list=feed_list))
+        #print('login user :', request.session['email'])
+        email = request.session.get('email', None)
+
+        if email is None:
+            return render(request, 'user/login.html')
+
+        user = User.objects.filter(email=email).first()
+
+        if user is None:
+            return render(request, 'user/login.html')
+
+        return render(request, 'Kiistargram/main.html', context=dict(feed_list=feed_list, user=user))
 
 class UploadFeed(APIView):
     def post(self, request):
@@ -29,3 +41,7 @@ class UploadFeed(APIView):
         profile_image = request.data.get('profile_image')
         Feed.objects.create(image=image, content=content, user_id=user_id, profile_image=profile_image, like_count=0)
         return Response(status=200)
+
+class Profile(APIView):
+    def get(self, request):
+        return render(request, 'content/profile.html')

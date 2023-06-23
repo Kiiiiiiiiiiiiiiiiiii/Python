@@ -72,7 +72,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed;width: 100%; z-index: 999">
     <div class="container-fluid" style="justify-content: space-between;flex-wrap: nowrap; min-width: 1000px">
-        <a class="navbar-brand" href="main"><img style="width: 100px"
+        <a class="navbar-brand" href="/main"><img style="width: 100px"
                                                  src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png">
         </a>
         <input class="form-control me-2" style="width: 400px" type="search" placeholder="Search" aria-label="Search">
@@ -484,15 +484,12 @@
         let file = files[0];
         let image = files[0].name;
         let content = $('#input_feed_content').val();
-        let user_id = 'jbk'
-        let profile_image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/British_blue_2009_%28cropped%29.jpg/250px-British_blue_2009_%28cropped%29.jpg'
+
         let fd = new FormData();
 
         fd.append('file', file);
         fd.append('image', image);
         fd.append('content', content);
-        fd.append('user_id', user_id);
-        fd.append('profile_image', profile_image);
 
         $.ajax({
             url: "/content/upload",
