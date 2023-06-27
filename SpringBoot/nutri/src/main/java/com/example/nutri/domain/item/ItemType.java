@@ -18,7 +18,6 @@ public class ItemType {
     private String name;
     @Column
     private String code;
-
     @Builder
     public ItemType(String name, String code) {
         this.name = name;

@@ -23,8 +23,8 @@ public class Item {
     private String link;
     @Column(length = 500)
     private String image;
-    @ManyToOne
-    @JoinColumn(name = "itemType_id")
+    @OneToOne(targetEntity = ItemType.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "itemType_id", referencedColumnName = "id")
     private ItemType itemType;
 
     @Builder
